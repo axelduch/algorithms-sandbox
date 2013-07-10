@@ -1,0 +1,8 @@
+# binary
+*.bin
+
+# built
+dota2
+
+#cloud9
+.c9revisions/
