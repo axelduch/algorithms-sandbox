@@ -74,7 +74,7 @@ class IOHelper {
                 clog << strlen((char *) bytes);
                 throw string("Fatal error: can't write block of data since it's size is not 11");
             }
-            if (11 * matchIndex  + 10 >= MAX_OFFSET) {
+            if (11 * matchIndex  + 10 > MAX_OFFSET) {
                 throw string(MAX_OFFSET_OVERFLOW_ERR_MSG);
             }
             dbfs.open(database.c_str(), ios::in | ios::out | ios::binary);
