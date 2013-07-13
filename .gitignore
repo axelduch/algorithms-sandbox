@@ -2,7 +2,8 @@
 *.bin
 
 # built
-dota2
-
+populate_db.elf
+*.o
+*.out
 #cloud9
 .c9revisions/
