@@ -1,14 +1,5 @@
 #include "IOHelper.h"
 
-/**
- * @TODO
- * Optimiser l'accès en mémoire,
- * un match prend 16 octets,
- * en découlent ces conséquences:
- * => recalculer l'offset max
- * => recalculer l'index d'un match
- */
-
 using namespace std;
 
 IOHelper::IOHelper() {
