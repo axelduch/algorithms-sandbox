@@ -11,7 +11,7 @@ using namespace std;
 int main () {
     map<char, string> heroesIdName;
     // vector<char> => [0]: gameCount, [1]: winCount
-    map<unsigned short, vector<unsigned char> > heroesPairs;
+    map<unsigned short, vector<unsigned short> > heroesPairs;
 
     char * gameBuffer = new char[11];
     unsigned char bigId, tinyId, currentId = 1;;
@@ -58,11 +58,10 @@ int main () {
                     }
                     heroesPairs[hash][0] = heroesPairs[hash][0] + 1;
                     if (h1 < 5) { // if they were in team 1
-                        heroesPairs[hash][1] += ((int)gameBuffer[10] == 1);
+                        heroesPairs[hash][1] += (gameBuffer[10] == '1');
                     } else { // they were in team 2
-                        heroesPairs[hash][1] += ((int)gameBuffer[10] == 2);
+                        heroesPairs[hash][1] += (gameBuffer[10] == '2');
                     }
-                    //ofs << hash << ": gameCount => " << (int)heroesPairs[hash][0] << ", winCount => " << (int)heroesPairs[hash][1] << endl;
                 } else { // they were in opposite teams
                     // packing ids so that we can remember they were opponents
                     hash = tinyId << 8 | bigId;
@@ -72,6 +71,10 @@ int main () {
     }
 
     // dump heroesPairs to see what it looks like
+    for (map<unsigned short, vector<unsigned short> >::iterator it=heroesPairs.begin(); it!=heroesPairs.end(); ++it) {
+        ofs << it->first << " " << it->second[0] << " " << it->second[1] << endl;
+        //ofs << hash << ": gameCount => " << (int)heroesPairs[hash][0] << ", winCount => " << (int)heroesPairs[hash][1] << endl;
+    }
 
     delete io;
     delete gameBuffer;
